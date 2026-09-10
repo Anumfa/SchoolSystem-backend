@@ -16,6 +16,7 @@ let nextEventId = 6;
 let nextCourseId = 4;
 let nextAdmissionId = 1;
 let nextAdminId = 2;
+let nextGalleryId = 9;
 
 const admins = [
   { _id: 'a1', name: 'Mr. Ahmed Raza', email: 'admin@bfhs.edu.pk', password: 'admin123', phone: '+92 300 1234567', role: 'admin' },
@@ -71,6 +72,17 @@ const courses = [
 
 const admissions = [];
 
+const gallery = [
+  { _id: 'g1', title: 'Main School Building', category: 'Campus', image: '/gallery/campus-building.svg', description: 'Our main academic block.', order: 0 },
+  { _id: 'g2', title: 'Annual Sports Gala', category: 'Sports', image: '/gallery/sports-gala.svg', description: 'Athletics and team sports day.', order: 1 },
+  { _id: 'g3', title: 'Science Lab', category: 'Campus', image: '/gallery/science-lab.svg', description: 'Fully equipped science laboratory.', order: 2 },
+  { _id: 'g4', title: 'Independence Day', category: 'Events', image: '/gallery/independence-day.svg', description: '14th August celebrations.', order: 3 },
+  { _id: 'g5', title: 'Smart Classroom', category: 'Classrooms', image: '/gallery/smart-classroom.svg', description: 'Interactive smart boards in every room.', order: 4 },
+  { _id: 'g6', title: 'Library', category: 'Campus', image: '/gallery/library.svg', description: 'Thousands of books and quiet study space.', order: 5 },
+  { _id: 'g7', title: 'Computer Lab', category: 'Classrooms', image: '/gallery/computer-lab.svg', description: 'Modern computer lab for IT classes.', order: 6 },
+  { _id: 'g8', title: 'Arts Exhibition', category: 'Events', image: '/gallery/arts-exhibition.svg', description: 'Student artwork on display.', order: 7 },
+];
+
 // ---- Helpers ----
 export const mem = {
   admins,
@@ -79,16 +91,18 @@ export const mem = {
   events,
   courses,
   admissions,
+  gallery,
 };
 
 export const newId = (prefix) => {
-  const map = { a: 'a', t: 't', s: 's', e: 'e', c: 'c', ad: 'ad' };
+  const map = { a: 'a', t: 't', s: 's', e: 'e', c: 'c', ad: 'ad', g: 'g' };
   const key = map[prefix] || prefix;
   if (key === 's') return `${key}${nextStudentId++}`;
   if (key === 't') return `${key}${nextTeacherId++}`;
   if (key === 'e') return `${key}${nextEventId++}`;
   if (key === 'c') return `${key}${nextCourseId++}`;
   if (key === 'ad') return `${key}${nextAdmissionId++}`;
+  if (key === 'g') return `${key}${nextGalleryId++}`;
   return `${key}${nextAdminId++}`;
 };
 

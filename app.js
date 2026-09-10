@@ -8,6 +8,7 @@ import teacherRoutes from './routes/teachers.js';
 import eventRoutes from './routes/events.js';
 import admissionRoutes from './routes/admissions.js';
 import courseRoutes from './routes/courses.js';
+import galleryRoutes from './routes/gallery.js';
 import contactRoutes from './routes/contact.js';
 
 dotenv.config();
@@ -23,6 +24,7 @@ app.use('/api/teachers', teacherRoutes);
 app.use('/api/events', eventRoutes);
 app.use('/api/admissions', admissionRoutes);
 app.use('/api/courses', courseRoutes);
+app.use('/api/gallery', galleryRoutes);
 app.use('/api/contact', contactRoutes);
 
 // Health check

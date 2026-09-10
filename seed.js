@@ -5,6 +5,7 @@ import Teacher from './models/Teacher.js';
 import Student from './models/Student.js';
 import Event from './models/Event.js';
 import Course from './models/Course.js';
+import Gallery from './models/Gallery.js';
 
 dotenv.config();
 await connectDB();
@@ -18,6 +19,7 @@ const seedData = async () => {
       Student.deleteMany(),
       Event.deleteMany(),
       Course.deleteMany(),
+      Gallery.deleteMany(),
     ]);
 
     // Admin
@@ -216,6 +218,7 @@ const seedData = async () => {
         time: '9:00 AM',
         venue: 'School Ground',
         category: 'Sports',
+        image: '/gallery/sports-gala.svg',
         featured: true,
         status: 'upcoming',
       },
@@ -226,6 +229,7 @@ const seedData = async () => {
         time: '10:00 AM',
         venue: 'Main Hall',
         category: 'Academics',
+        image: '/gallery/science-lab.svg',
         featured: true,
         status: 'upcoming',
       },
@@ -236,6 +240,7 @@ const seedData = async () => {
         time: '8:30 AM',
         venue: 'School Ground',
         category: 'Cultural',
+        image: '/gallery/independence-day.svg',
         featured: true,
         status: 'upcoming',
       },
@@ -246,6 +251,7 @@ const seedData = async () => {
         time: '2:00 PM',
         venue: 'Classrooms',
         category: 'Other',
+        image: '/gallery/smart-classroom.svg',
         status: 'upcoming',
       },
       {
@@ -255,10 +261,44 @@ const seedData = async () => {
         time: '10:00 AM',
         venue: 'School Hall',
         category: 'Annual',
+        image: '/gallery/arts-exhibition.svg',
+        status: 'upcoming',
+      },
+      {
+        title: 'Inter-School Football Tournament',
+        description: 'Our football team competes against schools from across the city.',
+        date: new Date('2026-10-18'),
+        time: '3:30 PM',
+        venue: 'Sports Ground',
+        category: 'Sports',
+        image: '/gallery/library.svg',
+        status: 'upcoming',
+      },
+      {
+        title: 'Computer Literacy Week',
+        description: 'Coding workshops and a digital poster competition for Grade 6-10.',
+        date: new Date('2026-11-02'),
+        time: '11:00 AM',
+        venue: 'Computer Lab',
+        category: 'Academics',
+        image: '/gallery/computer-lab.svg',
         status: 'upcoming',
       },
     ]);
     console.log(`✅ ${events.length} events created`);
+
+    // Gallery
+    const gallery = await Gallery.create([
+      { title: 'Main School Building', category: 'Campus', image: '/gallery/campus-building.svg', description: 'Our main academic block.', order: 0 },
+      { title: 'Annual Sports Gala', category: 'Sports', image: '/gallery/sports-gala.svg', description: 'Athletics and team sports day.', order: 1 },
+      { title: 'Science Lab', category: 'Campus', image: '/gallery/science-lab.svg', description: 'Fully equipped science laboratory.', order: 2 },
+      { title: 'Independence Day', category: 'Events', image: '/gallery/independence-day.svg', description: '14th August celebrations.', order: 3 },
+      { title: 'Smart Classroom', category: 'Classrooms', image: '/gallery/smart-classroom.svg', description: 'Interactive smart boards in every room.', order: 4 },
+      { title: 'Library', category: 'Campus', image: '/gallery/library.svg', description: 'Thousands of books and quiet study space.', order: 5 },
+      { title: 'Computer Lab', category: 'Classrooms', image: '/gallery/computer-lab.svg', description: 'Modern computer lab for IT classes.', order: 6 },
+      { title: 'Arts Exhibition', category: 'Events', image: '/gallery/arts-exhibition.svg', description: 'Student artwork on display.', order: 7 },
+    ]);
+    console.log(`✅ ${gallery.length} gallery images created`);
 
     console.log('\n🎉 Database seeded successfully!');
     console.log('\nLogin credentials:');
