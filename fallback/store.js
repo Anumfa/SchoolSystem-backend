@@ -12,7 +12,7 @@ export const isDbUp = () => mongoose.connection.readyState === 1;
 // Seed data (mirrors backend/seed.js, plaintext passwords for fallback login)
 let nextStudentId = 5;
 let nextTeacherId = 5;
-let nextEventId = 6;
+let nextEventId = 8;
 let nextCourseId = 4;
 let nextAdmissionId = 1;
 let nextAdminId = 2;
@@ -57,11 +57,13 @@ const students = [
 ];
 
 const events = [
-  { _id: 'e1', title: 'Annual Sports Gala 2026', description: 'A fun-filled day of athletics, races, and team sports for all grade levels.', date: '2026-11-20', time: '9:00 AM', venue: 'School Ground', category: 'Sports', featured: true, status: 'upcoming' },
-  { _id: 'e2', title: 'Science & Tech Exhibition', description: 'Students showcase innovative science and technology projects.', date: '2026-12-05', time: '10:00 AM', venue: 'Main Hall', category: 'Academics', featured: true, status: 'upcoming' },
-  { _id: 'e3', title: 'Independence Day Celebration', description: 'Flag hoisting ceremony and cultural performances celebrating 14th August.', date: '2026-08-14', time: '8:30 AM', venue: 'School Ground', category: 'Cultural', featured: true, status: 'upcoming' },
-  { _id: 'e4', title: 'Parent Teacher Meeting', description: 'Quarterly meeting to discuss student progress with parents.', date: '2026-09-15', time: '2:00 PM', venue: 'Classrooms', category: 'Other', status: 'upcoming' },
-  { _id: 'e5', title: 'Annual Result Day', description: 'Distribution of annual examination results and awards ceremony.', date: '2027-03-30', time: '10:00 AM', venue: 'School Hall', category: 'Annual', status: 'upcoming' },
+  { _id: 'e1', title: 'Annual Sports Gala 2026', description: 'A fun-filled day of athletics, races, and team sports for all grade levels.', date: '2026-11-20', time: '9:00 AM', venue: 'School Ground', category: 'Sports', image: '/gallery/sports-gala.svg', featured: true, status: 'upcoming' },
+  { _id: 'e2', title: 'Science & Tech Exhibition', description: 'Students showcase innovative science and technology projects.', date: '2026-12-05', time: '10:00 AM', venue: 'Main Hall', category: 'Academics', image: '/gallery/science-lab.svg', featured: true, status: 'upcoming' },
+  { _id: 'e3', title: 'Independence Day Celebration', description: 'Flag hoisting ceremony and cultural performances celebrating 14th August.', date: '2026-08-14', time: '8:30 AM', venue: 'School Ground', category: 'Cultural', image: '/gallery/independence-day.svg', featured: true, status: 'upcoming' },
+  { _id: 'e4', title: 'Parent Teacher Meeting', description: 'Quarterly meeting to discuss student progress with parents.', date: '2026-09-15', time: '2:00 PM', venue: 'Classrooms', category: 'Other', image: '/gallery/smart-classroom.svg', status: 'upcoming' },
+  { _id: 'e5', title: 'Annual Result Day', description: 'Distribution of annual examination results and awards ceremony.', date: '2027-03-30', time: '10:00 AM', venue: 'School Hall', category: 'Annual', image: '/gallery/arts-exhibition.svg', status: 'upcoming' },
+  { _id: 'e6', title: 'Inter-School Football Tournament', description: 'Our football team competes against schools from across the city.', date: '2026-10-18', time: '3:30 PM', venue: 'Sports Ground', category: 'Sports', image: '/gallery/library.svg', status: 'upcoming' },
+  { _id: 'e7', title: 'Computer Literacy Week', description: 'Coding workshops and a digital poster competition for Grade 6-10.', date: '2026-11-02', time: '11:00 AM', venue: 'Computer Lab', category: 'Academics', image: '/gallery/computer-lab.svg', status: 'upcoming' },
 ];
 
 const courses = [
