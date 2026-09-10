@@ -17,6 +17,8 @@ let nextCourseId = 4;
 let nextAdmissionId = 1;
 let nextAdminId = 2;
 let nextGalleryId = 9;
+let nextReviewId = 4;
+let nextMessageId = 1;
 
 const admins = [
   { _id: 'a1', name: 'Mr. Ahmed Raza', email: 'admin@bfhs.edu.pk', password: 'admin123', phone: '+92 300 1234567', role: 'admin' },
@@ -85,6 +87,15 @@ const gallery = [
   { _id: 'g8', title: 'Arts Exhibition', category: 'Events', image: '/gallery/arts-exhibition.svg', description: 'Student artwork on display.', order: 7 },
 ];
 
+const reviews = [
+  { _id: 'r1', name: 'Mrs. Nadia Aslam', role: 'Parent of Grade 8 Student', rating: 5, message: 'BFHS has transformed my son into a confident, disciplined learner. The teachers genuinely care about every child’s progress.', status: 'approved', createdAt: '2026-08-12T09:00:00.000Z' },
+  { _id: 'r2', name: 'Mr. Imran Sheikh', role: 'Parent of Grade 10 Student', rating: 5, message: 'The science labs and computer education here are outstanding. My daughter won first prize in the city science exhibition!', status: 'approved', createdAt: '2026-08-18T09:00:00.000Z' },
+  { _id: 'r3', name: 'Mrs. Saira Batool', role: 'Alumna & Parent', rating: 5, message: 'A wonderful, safe environment with excellent academics and character building. Proud to be part of the BFHS family.', status: 'approved', createdAt: '2026-08-25T09:00:00.000Z' },
+];
+
+// Contact form submissions (starts empty - these are real user messages, not demo data)
+const messages = [];
+
 // ---- Helpers ----
 export const mem = {
   admins,
@@ -94,10 +105,12 @@ export const mem = {
   courses,
   admissions,
   gallery,
+  reviews,
+  messages,
 };
 
 export const newId = (prefix) => {
-  const map = { a: 'a', t: 't', s: 's', e: 'e', c: 'c', ad: 'ad', g: 'g' };
+  const map = { a: 'a', t: 't', s: 's', e: 'e', c: 'c', ad: 'ad', g: 'g', r: 'r', m: 'm' };
   const key = map[prefix] || prefix;
   if (key === 's') return `${key}${nextStudentId++}`;
   if (key === 't') return `${key}${nextTeacherId++}`;
@@ -105,6 +118,8 @@ export const newId = (prefix) => {
   if (key === 'c') return `${key}${nextCourseId++}`;
   if (key === 'ad') return `${key}${nextAdmissionId++}`;
   if (key === 'g') return `${key}${nextGalleryId++}`;
+  if (key === 'r') return `${key}${nextReviewId++}`;
+  if (key === 'm') return `${key}${nextMessageId++}`;
   return `${key}${nextAdminId++}`;
 };
 

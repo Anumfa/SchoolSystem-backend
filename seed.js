@@ -6,6 +6,7 @@ import Student from './models/Student.js';
 import Event from './models/Event.js';
 import Course from './models/Course.js';
 import Gallery from './models/Gallery.js';
+import Review from './models/Review.js';
 
 dotenv.config();
 await connectDB();
@@ -20,6 +21,7 @@ const seedData = async () => {
       Event.deleteMany(),
       Course.deleteMany(),
       Gallery.deleteMany(),
+      Review.deleteMany(),
     ]);
 
     // Admin
@@ -299,6 +301,14 @@ const seedData = async () => {
       { title: 'Arts Exhibition', category: 'Events', image: '/gallery/arts-exhibition.svg', description: 'Student artwork on display.', order: 7 },
     ]);
     console.log(`✅ ${gallery.length} gallery images created`);
+
+    // Reviews (approved = shown on the home page testimonials section)
+    const reviews = await Review.create([
+      { name: 'Mrs. Nadia Aslam', role: 'Parent of Grade 8 Student', rating: 5, message: 'BFHS has transformed my son into a confident, disciplined learner. The teachers genuinely care about every child’s progress.', status: 'approved' },
+      { name: 'Mr. Imran Sheikh', role: 'Parent of Grade 10 Student', rating: 5, message: 'The science labs and computer education here are outstanding. My daughter won first prize in the city science exhibition!', status: 'approved' },
+      { name: 'Mrs. Saira Batool', role: 'Alumna & Parent', rating: 5, message: 'A wonderful, safe environment with excellent academics and character building. Proud to be part of the BFHS family.', status: 'approved' },
+    ]);
+    console.log(`✅ ${reviews.length} reviews created`);
 
     console.log('\n🎉 Database seeded successfully!');
     console.log('\nLogin credentials:');
