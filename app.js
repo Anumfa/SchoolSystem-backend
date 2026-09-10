@@ -10,6 +10,7 @@ import admissionRoutes from './routes/admissions.js';
 import courseRoutes from './routes/courses.js';
 import galleryRoutes from './routes/gallery.js';
 import reviewRoutes from './routes/reviews.js';
+import statsRoutes from './routes/stats.js';
 import contactRoutes from './routes/contact.js';
 
 dotenv.config();
@@ -27,6 +28,7 @@ app.use('/api/admissions', admissionRoutes);
 app.use('/api/courses', courseRoutes);
 app.use('/api/gallery', galleryRoutes);
 app.use('/api/reviews', reviewRoutes);
+app.use('/api/stats', statsRoutes);
 app.use('/api/contact', contactRoutes);
 
 // Health check
